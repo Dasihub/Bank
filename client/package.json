@@ -1,0 +1,45 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "main": "index.jsx",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open",
+    "web": "webpack",
+    "dev": "webpack --mode development"
+  },
+  "author": {
+    "name": "Dastan",
+    "email": "dasihub02@gmail.com",
+    "url": "https://dasidragon.herokuapp.com/"
+  },
+  "browserslist": "last 2 versions",
+  "devDependencies": {
+    "@babel/core": "^7.17.0",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.6.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "materialize-css": "^1.0.0",
+    "node-sass": "6.0.1",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
+    "react-thunk": "^1.0.0",
+    "redux": "^4.1.2"
+  }
+}
