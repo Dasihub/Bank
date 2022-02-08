@@ -1,20 +1,31 @@
 import React from "react";
+import axios from "axios";
 import TransitionAdd from "../component/TransitionAdd";
-import {useDispatch} from "react-redux";
 
 function TransitionPages() {
+    const [disableBtn, setDisableBtn] = React.useState(false)
+    const [transition, setTransition] = React.useState('')
 
-    const dispatch = useDispatch
-
-    const handleTransition = (transition) => {
-        if (transition) {
-            dispatch()
+    const handleTransition = async (transition) => {
+        try {
+            setTransition(pre => pre = '')
+            setDisableBtn(pre => pre = true)
+            const res = await axios.post('/api/transition', {amount: transition.trim()})
+            setDisableBtn(false)
+            window.alert(res.data.message)
+        } catch (e) {
+            console.log(e)
         }
     }
 
     return (
         <>
-            <TransitionAdd handleTransition={handleTransition}/>
+            <TransitionAdd
+                transition={transition}
+                disableBtn={disableBtn}
+                setTransition={setTransition}
+                handleTransition={handleTransition}
+            />
         </>
     )
 }

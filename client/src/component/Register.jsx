@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types'
 import {NavLink} from "react-router-dom";
 
-function Register({setForm, form}) {
+function Register({setForm, form, register}) {
 
     const change = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
@@ -44,6 +44,7 @@ function Register({setForm, form}) {
                         <button
                             className="btn yellow darken-4"
                             style={{marginRight: '10px'}}
+                            onClick={register}
                         >Создать аккаунт
                         </button>
                         <NavLink to="/login">
@@ -61,6 +62,7 @@ function Register({setForm, form}) {
 
 Register.propTypes = {
     setForm: PropTypes.func.isRequired,
+    register: PropTypes.func.isRequired,
     form: PropTypes.object.isRequired
 }
 

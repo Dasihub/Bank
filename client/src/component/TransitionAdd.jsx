@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function TransitionAdd({handleTransition}) {
-    const [transition, setTransition] = React.useState('')
+function TransitionAdd({handleTransition, disableBtn, setTransition, transition}) {
 
     const change = (e) => {
       setTransition(e.target.value)
@@ -25,6 +24,7 @@ function TransitionAdd({handleTransition}) {
                                 className="btn yellow darken-4"
                                 style={{marginRight: '10px'}}
                                 onClick={handleTransition.bind(null, transition)}
+                                disabled={disableBtn}
                             >Добавить
                             </button>
                         </div>
@@ -36,7 +36,10 @@ function TransitionAdd({handleTransition}) {
 }
 
 TransitionAdd.propTypes = {
-    handleTransition: PropTypes.func.isRequired
+    handleTransition: PropTypes.func.isRequired,
+    setTransition: PropTypes.func.isRequired,
+    disableBtn: PropTypes.bool.isRequired,
+    transition: PropTypes.string.isRequired
 }
 
 export default TransitionAdd

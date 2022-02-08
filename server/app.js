@@ -30,6 +30,7 @@ async function start() {
 start()
 
 app.use('/', require('./routes/index'))
+app.get('*', (req, res) => res.render('index'))
 
 // error handler
 app.use(function(err, req, res, next) {

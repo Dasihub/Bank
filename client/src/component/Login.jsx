@@ -2,7 +2,7 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types";
 
-function Login({setForm, form}) {
+function Login({setForm, form, login}) {
 
     const change = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
@@ -44,6 +44,7 @@ function Login({setForm, form}) {
                         <button
                             className="btn yellow darken-4"
                             style={{marginRight: '10px'}}
+                            onClick={login}
                         >Войти
                         </button>
                         <NavLink to="/register">

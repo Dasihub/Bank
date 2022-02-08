@@ -3,9 +3,14 @@ const Bank = require('../model/ModelBank')
 class BankController {
     async createTransaction(req, res) {
         try {
-            const {amount, bankId} = req.body
-
-            const transition = new Bank({amount, bankId})
+            const {amount} = req.body
+            console.log(amount)
+            if (amount == undefined) {
+                return res.status(200).json({
+                    message: 'Заполните поля!'
+                })
+            }
+            const transition = new Bank({amount})
             await transition.save()
 
             res.status(201).json({

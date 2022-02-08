@@ -38,6 +38,7 @@ class AuthController {
 
             if (!user) {
                 return res.status(200).json({
+                    token: false,
                     message: 'Такого пользователя нет!'
                 })
             }
@@ -65,9 +66,9 @@ class AuthController {
 
     async checkToken(req, res) {
         try {
-            const token = req.cookies
+            const {token} = req.cookies
 
-            if (token === undefined) {
+            if (token == undefined) {
                 return res.status(200).json({
                     token: false,
                     message: 'Вы еще не авторизованы!'
@@ -77,6 +78,18 @@ class AuthController {
             res.status(200).json({
                 token: true,
                 message: "Токен есть"
+            })
+        } catch (e) {
+            res.status(501).json({
+                message: 'Что-то пошло не так!'
+            })
+        }
+    }
+
+    async logout(req, res) {
+        try {
+            res.status(200).clearCookie('token').json({
+                message: 'Вы вышли!'
             })
         } catch (e) {
             res.status(501).json({
